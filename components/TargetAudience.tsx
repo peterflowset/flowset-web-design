@@ -12,9 +12,9 @@ const INDUSTRIES = [
 
 const INCLUDED = [
   "Professionelle Website mit bis zu 5 Seiten",
-  "Kontaktformular & Google Maps Integration",
-  "Bildoptimierung & Ladezeit-Optimierung",
-  "Mobile-optimiert für alle Geräte",
+  "Kontaktformular & Google Maps Einbindung",
+  "Blitzschnelle Ladezeiten & optimierte Bilder",
+  "Perfekt auf Handy & Tablet optimiert",
   "Südtiroler Ansprechpartner vor Ort"
 ];
 

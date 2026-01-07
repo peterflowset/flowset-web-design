@@ -25,8 +25,8 @@ export const PricingTable: React.FC = () => {
               <ul className="space-y-5">
                 {[
                   "Individuelles Design & Marken-Check",
-                  "100% Mobil-optimiert (Responsive)",
-                  "Local SEO-Grundpaket (Südtirol)",
+                  "Perfekt auf Handy & Tablet optimiert",
+                  "Google-Optimierung für Südtirol",
                   "Google Maps & Kontaktformular",
                   "Unterstützung bei Förderantrag"
                 ].map((item, i) => (

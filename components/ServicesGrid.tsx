@@ -10,13 +10,13 @@ const SERVICES = [
   },
   {
     icon: <Zap className="text-[#316bff]" size={28} />,
-    title: "High-Speed",
-    description: "Wir nutzen modernste Tech-Stacks für Ladezeiten unter einer Sekunde. Bessere Google-Rankings inklusive."
+    title: "Blitzschnell",
+    description: "Modernste Technologie für superschnelle Ladezeiten. Ihre Kunden müssen nicht warten – bessere Google-Rankings inklusive."
   },
   {
     icon: <Search className="text-[#316bff]" size={28} />,
-    title: "Google Local",
-    description: "Gezielte lokale SEO-Optimierung, damit Südtiroler Kunden Sie sofort finden."
+    title: "Bei Google gefunden werden",
+    description: "Optimiert für lokale Suchanfragen, damit Südtiroler Kunden Sie bei Google sofort finden."
   },
   {
     icon: <PhoneCall className="text-[#316bff]" size={28} />,

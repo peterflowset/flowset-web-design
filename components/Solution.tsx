@@ -1,27 +1,17 @@
 
 import React from 'react';
-import { ArrowRight, CheckCircle2, Zap, Rocket, Euro, Sparkles } from 'lucide-react';
+import { ArrowRight, Zap, Euro, Sparkles } from 'lucide-react';
 
 const SOLUTIONS = [
   {
-    title: "KI-beschleunigt",
+    title: "Blitzschnelle Umsetzung",
     icon: <Zap className="text-[#316bff]" />,
-    description: "Unsere KI-Workflows reduzieren die Entwicklungszeit von Monaten auf Tage – ohne Qualitätsverlust."
+    description: "Wir nutzen moderne Technologie, um Ihre Website von Monaten auf nur 7 Tage zu verkürzen – ohne Abstriche bei der Qualität."
   },
   {
-    title: "Transparente Preise",
+    title: "Klare Preise",
     icon: <Euro className="text-[#316bff]" />,
-    description: "Ein Festpreis, alles inklusive. Mit 60% Landesförderung zahlen Sie nur 800€ statt 2.000€."
-  },
-  {
-    title: "Blitzschnell live",
-    icon: <Rocket className="text-[#316bff]" />,
-    description: "In nur 7 Werktagen ist Ihre professionelle Website online und bereit, Kunden zu gewinnen."
-  },
-  {
-    title: "Perfekt optimiert",
-    icon: <CheckCircle2 className="text-[#316bff]" />,
-    description: "Mobile-optimiert, SEO-ready und technisch auf dem neuesten Stand – ab Tag 1."
+    description: "Ein Festpreis, alles inklusive. Mit 60% Landesförderung zahlen Sie nur 800€ statt 2.000€. Keine versteckten Kosten."
   }
 ];
 
@@ -41,7 +31,7 @@ export const Solution: React.FC = () => {
                 Schnell. Günstig. <span className="italic font-medium text-gray-300">Professionell.</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-                Durch KI-gestützte Prozesse schaffen wir, was klassische Agenturen nicht können: Höchste Qualität in Rekordzeit zu fairen Preisen.
+                Mit modernster Technologie schaffen wir, was klassische Agenturen nicht können: Höchste Qualität in Rekordzeit zu fairen Preisen.
               </p>
             </div>
 

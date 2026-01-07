@@ -106,7 +106,7 @@ const App: React.FC = () => {
                 alt="Flowset"
                 className="h-8 w-auto"
               />
-              <p className="text-gray-500 max-w-xs font-medium">Ihre KI-getriebene Web-Agentur aus Südtirol. Professionelle Ergebnisse in Rekordzeit.</p>
+              <p className="text-gray-500 max-w-xs font-medium">Ihre moderne Web-Agentur aus Südtirol. Professionelle Ergebnisse in Rekordzeit.</p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-16">

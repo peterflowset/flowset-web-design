@@ -65,7 +65,7 @@ export const PricingTable: React.FC = () => {
 
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="mt-auto w-full bg-white text-[#316bff] py-4 sm:py-4 rounded-2xl sm:rounded-2xl text-xs font-bold uppercase tracking-[0.2em] shadow-2xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2 sm:gap-3 relative z-10 active:scale-[0.98]"
+                className="mt-8 sm:mt-auto w-full bg-white text-[#316bff] py-4 sm:py-4 rounded-2xl sm:rounded-2xl text-xs font-bold uppercase tracking-[0.2em] shadow-2xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2 sm:gap-3 relative z-10 active:scale-[0.98]"
                 style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
               >
                 Jetzt anfragen

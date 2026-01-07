@@ -4,6 +4,7 @@ import { Send, CheckCircle2 } from 'lucide-react';
 
 export const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,10 +15,30 @@ export const ContactForm: React.FC = () => {
     subsidyHelp: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://flowsetagentur.app.n8n.cloud/webhook/web', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -90,6 +111,7 @@ export const ContactForm: React.FC = () => {
                   className="w-full bg-gray-50 border border-gray-100 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-950 focus:border-[#316bff] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#316bff]/5 transition-all font-bold tracking-tight"
                   placeholder="Max Mustermann"
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={isSubmitting}
                 />
               </div>
               <div className="md:col-span-1">
@@ -100,6 +122,7 @@ export const ContactForm: React.FC = () => {
                   className="w-full bg-gray-50 border border-gray-100 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-950 focus:border-[#316bff] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#316bff]/5 transition-all font-bold tracking-tight"
                   placeholder="max@beispiel.it"
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  disabled={isSubmitting}
                 />
               </div>
               <div className="md:col-span-1">
@@ -110,6 +133,7 @@ export const ContactForm: React.FC = () => {
                   className="w-full bg-gray-50 border border-gray-100 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-950 focus:border-[#316bff] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#316bff]/5 transition-all font-bold tracking-tight"
                   placeholder="+39 ..."
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  disabled={isSubmitting}
                 />
               </div>
               <div className="md:col-span-1">
@@ -117,6 +141,7 @@ export const ContactForm: React.FC = () => {
                 <select
                   className="w-full bg-gray-50 border border-gray-100 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-950 focus:border-[#316bff] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#316bff]/5 transition-all font-bold tracking-tight appearance-none cursor-pointer"
                   onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                  disabled={isSubmitting}
                 >
                   <option>Handwerk</option>
                   <option>Gastronomie</option>
@@ -132,6 +157,7 @@ export const ContactForm: React.FC = () => {
                   className="w-full bg-gray-50 border border-gray-100 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-gray-950 focus:border-[#316bff] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#316bff]/5 transition-all font-bold tracking-tight resize-none"
                   placeholder="Gibt es Besonderheiten?"
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
 
@@ -142,6 +168,7 @@ export const ContactForm: React.FC = () => {
                     id="privacy"
                     required
                     className="w-5 h-5 sm:w-6 sm:h-6 rounded-md sm:rounded-lg border-gray-200 bg-white text-[#316bff] focus:ring-[#316bff] cursor-pointer shrink-0 mt-0.5"
+                    disabled={isSubmitting}
                   />
                   <label htmlFor="privacy" className="text-[10px] sm:text-xs font-bold text-gray-500 cursor-pointer uppercase tracking-[0.15em] sm:tracking-widest leading-relaxed">
                     Ich habe die Datenschutzerklärung gelesen und akzeptiert*
@@ -152,11 +179,12 @@ export const ContactForm: React.FC = () => {
               <div className="md:col-span-2">
                 <button
                   type="submit"
-                  className="group w-full bg-black text-white py-4 sm:py-5 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-xl hover:bg-[#316bff] transition-all duration-500 flex items-center justify-center gap-3 active:scale-95"
+                  disabled={isSubmitting}
+                  className="group w-full bg-black text-white py-4 sm:py-5 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] shadow-xl hover:bg-[#316bff] hover:shadow-2xl transition-all duration-500 flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
                 >
-                  Anfrage senden
-                  <Send size={16} className="sm:w-[18px] sm:h-[18px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
+                  {!isSubmitting && <Send size={16} className="sm:w-[18px] sm:h-[18px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                 </button>
               </div>
             </form>

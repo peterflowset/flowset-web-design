@@ -34,15 +34,15 @@ export const ProcessTimeline: React.FC = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateProgress = () => {
       if (!containerRef.current) return;
 
       const { top, height } = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
       // We want the line to fill as it crosses the center of the screen
-      // Start: Top of container touches center of screen
-      // End: Bottom of container touches center of screen
       const start = windowHeight / 2;
 
       // Calculate how much of the container has passed the "beam" (center of screen)
@@ -52,10 +52,19 @@ export const ProcessTimeline: React.FC = () => {
       const p = distFromTop / height;
 
       setProgress(Math.max(0, Math.min(1, p)));
+      ticking = false;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // initial
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateProgress(); // initial
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

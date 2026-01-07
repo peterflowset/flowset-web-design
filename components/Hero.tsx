@@ -17,13 +17,13 @@ export const Hero: React.FC = () => {
               <h1 className="text-4xl md:text-6xl font-bold leading-[1.05] tracking-tighter">
                 Ihre professionelle <br />
                 Website <span className="italic font-medium text-gray-300">in 7 Tagen</span><br />
-                <span className="text-[#316bff] italic font-semibold">– für 800€</span>
+                <span className="text-[#316bff] italic font-semibold">für 800€</span>
               </h1>
 
               <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
                 Einmalpreis 2.000€ <span className="mx-3 text-gray-300">|</span>
                 <span className="text-gray-600 font-semibold">60% Landesförderung</span> <br />
-                Perfekt für Kleinstunternehmen – <span className="text-gray-900 underline decoration-[#316bff]/20 underline-offset-4">ohne Abomodelle</span> oder versteckte Kosten.
+                Perfekt für Kleinstunternehmen in Südtirol.
               </p>
             </div>
 
@@ -38,16 +38,6 @@ export const Hero: React.FC = () => {
                 </span>
               </button>
 
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
-                  <div className="w-2 h-2 bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.4)]"></div>
-                  Keine monatlichen Fixkosten
-                </div>
-                <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  Südtiroler Support
-                </div>
-              </div>
             </div>
           </div>
 

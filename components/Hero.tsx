@@ -21,14 +21,7 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-6 text-left space-y-8 md:space-y-10">
             <div className="space-y-6 md:space-y-6">
 
-              {/* New Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-100 rounded-full text-blue-600 text-xs font-bold uppercase tracking-wider mb-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                Jetzt in Südtirol verfügbar
-              </div>
+
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tighter text-gray-900">
                 Ihre professionelle <br />
@@ -55,11 +48,7 @@ export const Hero: React.FC = () => {
                 </span>
               </button>
 
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold text-gray-500 uppercase tracking-wider px-2">
-                <span className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>Keine Vorkosten</span>
-                <span className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>Inkl. Hosting</span>
-              </div>
+
             </div>
           </div>
 

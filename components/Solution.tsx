@@ -21,44 +21,7 @@ export const Solution: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          <div className="space-y-8 order-2 lg:order-1">
-            <div>
-              <div className="inline-flex items-center gap-2 text-[#316bff] italic font-bold uppercase tracking-[0.25em] text-[10px] mb-4">
-                <Sparkles size={14} />
-                <span>Die Flowset-Lösung</span>
-              </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none mb-8">
-                Schnell. Günstig. <span className="italic font-medium text-gray-300">Professionell.</span>
-              </h2>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-                Mit modernster Technologie schaffen wir, was klassische Agenturen nicht können: Höchste Qualität in Rekordzeit zu fairen Preisen.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {SOLUTIONS.map((s, i) => (
-                <div key={i} className="group p-8 rounded-[32px] bg-white border border-gray-100 hover:border-blue-100 hover:shadow-[0_20px_40px_rgba(49,107,255,0.08)] transition-all duration-500">
-                  <div className="mb-6 w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    {s.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 tracking-tight">{s.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{s.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-6 text-[#316bff] font-bold uppercase tracking-[0.3em] text-xs group"
-            >
-              Prozess verstehen
-              <div className="w-12 h-12 rounded-full border border-blue-100 flex items-center justify-center group-hover:bg-[#316bff] group-hover:text-white group-hover:border-[#316bff] transition-all">
-                <ArrowRight size={20} />
-              </div>
-            </button>
-          </div>
-
-          <div className="order-1 lg:order-2 relative">
+          <div className="order-1 lg:order-1 relative">
             {/* Purely Visual Solution Graphic - Order & Efficiency */}
             <div className="relative aspect-square max-w-[540px] mx-auto bg-white rounded-[60px] border border-gray-100 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-white"></div>
@@ -115,6 +78,43 @@ export const Solution: React.FC = () => {
               {/* Subtle Background Glow */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(49,107,255,0.03)_0%,transparent_70%)] -z-10"></div>
             </div>
+          </div>
+
+          <div className="space-y-8 order-2 lg:order-2">
+            <div>
+              <div className="inline-flex items-center gap-2 text-[#316bff] italic font-bold uppercase tracking-[0.25em] text-[10px] mb-4">
+                <Sparkles size={14} />
+                <span>Die Flowset-Lösung</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none mb-8">
+                Schnell. Günstig. <span className="italic font-medium text-gray-300">Professionell.</span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+                Mit modernster Technologie schaffen wir, was klassische Agenturen nicht können: Höchste Qualität in Rekordzeit zu fairen Preisen.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {SOLUTIONS.map((s, i) => (
+                <div key={i} className="group p-8 rounded-[32px] bg-white border border-gray-100 hover:border-blue-100 hover:shadow-[0_20px_40px_rgba(49,107,255,0.08)] transition-all duration-500">
+                  <div className="mb-6 w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    {s.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 tracking-tight">{s.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{s.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={() => document.getElementById('ablauf')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center gap-6 text-[#316bff] font-bold uppercase tracking-[0.3em] text-xs group"
+            >
+              Prozess verstehen
+              <div className="w-12 h-12 rounded-full border border-blue-100 flex items-center justify-center group-hover:bg-[#316bff] group-hover:text-white group-hover:border-[#316bff] transition-all">
+                <ArrowRight size={20} />
+              </div>
+            </button>
           </div>
         </div>
       </div>

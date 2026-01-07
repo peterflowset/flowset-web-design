@@ -42,7 +42,7 @@ export const ServicesGrid: React.FC = () => {
             </h2>
           </div>
           <p className="text-lg text-gray-600 max-w-sm leading-relaxed pb-4">
-            Wir bauen keine Websites von gestern. Wir bauen Ihre digitale Zukunft mit den Werkzeugen der Marktführer.
+            Professionelle Ergebnisse mit den besten Werkzeugen am Markt.
           </p>
         </div>
 

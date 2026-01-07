@@ -121,9 +121,9 @@ const App: React.FC = () => {
               <div className="space-y-4">
                 <h4 className="font-bold uppercase tracking-widest text-xs text-gray-400">Rechtliches</h4>
                 <ul className="space-y-3 text-gray-500 text-sm font-medium">
-                  <li><a href="#" className="hover:text-black transition-colors">Datenschutz</a></li>
-                  <li><a href="#" className="hover:text-black transition-colors">Impressum</a></li>
-                  <li><a href="#" className="hover:text-black transition-colors">AGB</a></li>
+                  <li><a href="https://www.flowset.ai/datenschutz.html" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Datenschutz</a></li>
+                  <li><a href="https://www.flowset.ai/impressum.html" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Impressum</a></li>
+                  <li><a href="https://www.flowset.ai/agb.html" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">AGB</a></li>
                 </ul>
               </div>
             </div>

@@ -86,8 +86,8 @@ export const Solution: React.FC = () => {
                 <Sparkles size={14} />
                 <span>Die Flowset-Lösung</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none mb-8">
-                Schnell. Günstig. <span className="italic font-medium text-gray-300">Professionell.</span>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                Schnell. Günstig. <br /><span className="text-gray-300 italic">Professionell.</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
                 Mit modernster Technologie schaffen wir, was klassische Agenturen nicht können: Höchste Qualität in Rekordzeit zu fairen Preisen.

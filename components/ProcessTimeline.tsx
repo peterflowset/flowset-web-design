@@ -10,10 +10,10 @@ const STEPS = [
     description: "Definition Ihrer Ziele und Erstellung eines individuellen Design-Konzepts für Ihren Betrieb."
   },
   {
-    title: "High-End Entwicklung",
+    title: "Gestaltung & Aufbau",
     time: "Tag 2-5",
     icon: <FileText size={24} />,
-    description: "Ihre Website wird mit modernsten Technologien (React, Tailwind) pixelgenau zum Leben erweckt."
+    description: "Ihre Website wird mit modernster Technik pixelgenau umgesetzt – professionell und individuell."
   },
   {
     title: "Förderberatung",
@@ -22,10 +22,10 @@ const STEPS = [
     description: "Wir unterstützen Sie bei der Beantragung Ihrer 60% Landesförderung Südtirol."
   },
   {
-    title: "Launch & Go-Live",
+    title: "Veröffentlichung",
     time: "Tag 7",
     icon: <CheckCircle size={24} />,
-    description: "Go-Live und Übergabe. Sie erhalten eine Einschulung, um Inhalte selbst pflegen zu können."
+    description: "Ihre Website geht online. Sie erhalten eine Einschulung, um Inhalte selbst pflegen zu können."
   }
 ];
 

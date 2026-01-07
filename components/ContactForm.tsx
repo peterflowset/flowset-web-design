@@ -52,7 +52,7 @@ export const ContactForm: React.FC = () => {
               <div className="text-white/40 font-bold uppercase tracking-[0.2em] text-[10px] mb-4">Kontakt</div>
               <h2 className="text-4xl md:text-6xl font-bold mb-10 tracking-tighter leading-none">Bereit für <br /> den Start?</h2>
               <p className="text-lg opacity-80 font-medium leading-relaxed mb-12">
-                Füllen Sie das Formular aus – unser Team meldet sich innerhalb von 24h für ein kostenloses Strategiegespräch.
+                Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden für ein kostenloses Erstgespräch.
               </p>
 
               <div className="space-y-8">
@@ -139,12 +139,12 @@ export const ContactForm: React.FC = () => {
                 <div className="flex items-center gap-4 bg-gray-50 p-6 rounded-2xl border border-gray-100">
                   <input
                     type="checkbox"
-                    id="subsidy"
+                    id="privacy"
+                    required
                     className="w-6 h-6 rounded-lg border-gray-200 bg-white text-[#316bff] focus:ring-[#316bff] cursor-pointer"
-                    onChange={(e) => setFormData({ ...formData, subsidyHelp: e.target.checked })}
                   />
-                  <label htmlFor="subsidy" className="text-xs font-bold text-gray-500 cursor-pointer uppercase tracking-widest">
-                    Ich benötige Unterstützung bei der Landesförderung (60%)
+                  <label htmlFor="privacy" className="text-xs font-bold text-gray-500 cursor-pointer uppercase tracking-widest">
+                    Ich habe die Datenschutzerklärung gelesen und akzeptiert*
                   </label>
                 </div>
               </div>

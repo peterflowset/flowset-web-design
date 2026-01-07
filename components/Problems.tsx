@@ -27,8 +27,8 @@ export const Problems: React.FC = () => {
                 <AlertCircle size={14} />
                 <span>Status Quo der Branche</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none mb-8">
-                Nachteile von <span className="italic font-medium text-gray-300">klassischen</span><br />Agenturen.
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                Nachteile von <br /><span className="text-gray-300 italic">klassischen</span> Agenturen.
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
                 Klassische Prozesse sind zu langsam und intransparent für lokale Betriebe. Wir eliminieren die Reibungsverluste des alten Agenturmodells.

@@ -5,45 +5,40 @@ import { Smartphone, Zap, Search, PhoneCall, ShieldCheck } from 'lucide-react';
 const SERVICES = [
   {
     icon: <Smartphone className="text-[#316bff]" size={28} />,
-    title: "Mobile First",
-    description: "Optimiert für das wichtigste Gerät Ihrer Kunden. Perfekte Bedienung auf jedem Smartphone."
+    title: "Optimiert für Handy",
+    description: "Perfekte Darstellung auf jedem Smartphone und Tablet. Ihre Kunden finden sich sofort zurecht."
   },
   {
     icon: <Zap className="text-[#316bff]" size={28} />,
     title: "Blitzschnell",
-    description: "Modernste Technologie für superschnelle Ladezeiten. Ihre Kunden müssen nicht warten – bessere Google-Rankings inklusive."
+    description: "Kurze Ladezeiten dank modernster Technologie. Ihre Kunden müssen nicht warten – bessere Platzierung bei Google inklusive."
   },
   {
     icon: <Search className="text-[#316bff]" size={28} />,
-    title: "Bei Google gefunden werden",
-    description: "Optimiert für lokale Suchanfragen, damit Südtiroler Kunden Sie bei Google sofort finden."
+    title: "Lokal auffindbar",
+    description: "Ihre Kunden aus der Region finden Sie sofort bei Google. Speziell für Südtirol optimiert."
   },
   {
     icon: <PhoneCall className="text-[#316bff]" size={28} />,
-    title: "Support-Flat",
-    description: "Persönlicher Ansprechpartner in Südtirol. Wir sind da, wenn Sie uns brauchen – ohne Ticketsystem."
+    title: "Persönliche Betreuung",
+    description: "Direkter Ansprechpartner in Südtirol. Wir sind für Sie da, wenn Sie uns brauchen – unkompliziert und direkt."
   },
   {
     icon: <ShieldCheck className="text-[#316bff]" size={28} />,
-    title: "Full Managed",
-    description: "Hosting, Domain & SSL inklusive. Sie müssen sich um keine Technik kümmern. Wir machen das für Sie."
+    title: "Rundum-Sorglos",
+    description: "Webhosting, Domain und Sicherheit inklusive. Sie müssen sich um keine Technik kümmern. Wir erledigen das für Sie."
   }
 ];
 
 export const ServicesGrid: React.FC = () => {
   return (
-    <section className="min-h-screen flex items-center py-24 relative bg-white">
+    <section className="flex items-center py-20 relative bg-white">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
-          <div className="max-w-2xl">
-            <div className="text-[#316bff] italic font-bold uppercase tracking-[0.2em] text-xs mb-4">Ihre Vorteile</div>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-6">
-              Modernste <br /><span className="text-gray-300 italic font-medium">Technologie.</span>
-            </h2>
-          </div>
-          <p className="text-lg text-gray-600 max-w-sm leading-relaxed pb-4">
-            Professionelle Ergebnisse mit den besten Werkzeugen am Markt.
-          </p>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-[#316bff] italic font-bold uppercase tracking-[0.2em] text-xs mb-4">Ihre Vorteile</div>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            Modernste <br /><span className="text-gray-300 italic">Technologie.</span>
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100 rounded-[48px] overflow-hidden border border-gray-100">

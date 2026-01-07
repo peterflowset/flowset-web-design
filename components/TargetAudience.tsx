@@ -12,8 +12,8 @@ const INDUSTRIES = [
 
 const INCLUDED = [
   "Professionelle Website mit bis zu 5 Seiten",
-  "Kontaktformular & Google Maps Einbindung",
-  "Blitzschnelle Ladezeiten & optimierte Bilder",
+  "Kontaktformular & Google-Karte",
+  "Schnelle Ladezeiten & optimierte Bilder",
   "Perfekt auf Handy & Tablet optimiert",
   "Südtiroler Ansprechpartner vor Ort"
 ];
@@ -24,7 +24,7 @@ export const TargetAudience: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="text-[#316bff] italic font-bold uppercase tracking-[0.2em] text-xs mb-4">Zielgruppe</div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-8 leading-none">Für wen ist <br /><span className="text-gray-400 italic font-medium">das gedacht?</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Für wen ist <br /><span className="text-gray-300 italic">das gedacht?</span></h2>
           <p className="text-lg text-gray-600 leading-relaxed">
             Flowset konzentriert sich auf Kleinstunternehmen in Südtirol, die eine professionelle Online-Präsenz brauchen – ohne Agentur-Overhead.
           </p>

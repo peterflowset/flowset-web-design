@@ -8,7 +8,7 @@ export const PricingTable: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="text-[#316bff] italic font-bold uppercase tracking-[0.25em] text-[10px] mb-4">Preisgestaltung</div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 leading-none">Transparent. Fair. <br /><span className="text-gray-300 italic">Förderbar.</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Transparent. Fair. <br /><span className="text-gray-300 italic">Förderbar.</span></h2>
           <p className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">Keine versteckten Gebühren. Volle Kostentransparenz mit der Landesförderung Südtirol.</p>
         </div>
 
@@ -24,10 +24,10 @@ export const PricingTable: React.FC = () => {
               </div>
               <ul className="space-y-5">
                 {[
-                  "Individuelles Design & Marken-Check",
+                  "Individuelles Design & Gestaltung",
                   "Perfekt auf Handy & Tablet optimiert",
-                  "Google-Optimierung für Südtirol",
-                  "Google Maps & Kontaktformular",
+                  "Optimiert für Google-Suche in Südtirol",
+                  "Google-Karte & Kontaktformular",
                   "Unterstützung bei Förderantrag"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4 text-gray-500 font-bold tracking-tight group">
@@ -80,7 +80,7 @@ export const PricingTable: React.FC = () => {
               </div>
               <h3 className="text-3xl font-bold mb-6 tracking-tight leading-none">Spezielle <br />Lösungen</h3>
               <p className="text-gray-400 font-medium leading-relaxed mb-8 text-base">
-                Individuelle Anforderungen wie Buchungssysteme, komplexe Shops oder Mehrsprachigkeit?
+                Besondere Anforderungen wie Buchungssysteme, Online-Shops oder mehrere Sprachen?
               </p>
               <div className="space-y-5 mb-8">
                 <div className="flex items-center gap-3 text-xs text-gray-300 font-bold uppercase tracking-[0.15em]">

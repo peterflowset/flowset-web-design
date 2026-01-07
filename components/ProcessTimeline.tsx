@@ -25,7 +25,7 @@ const STEPS = [
     title: "Veröffentlichung",
     time: "Tag 7",
     icon: <CheckCircle size={24} />,
-    description: "Ihre Website geht online. Sie erhalten eine Einschulung, um Inhalte selbst pflegen zu können."
+    description: "Ihre Website geht online. Wir kümmern uns um Hosting, Domain und alle technischen Details."
   }
 ];
 

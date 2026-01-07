@@ -11,7 +11,7 @@ const INDUSTRIES = [
 ];
 
 const INCLUDED = [
-  "Professionelle Website mit 5-8 Seiten",
+  "Professionelle Website mit bis zu 5 Seiten",
   "Kontaktformular & Google Maps Integration",
   "Bildoptimierung & Ladezeit-Optimierung",
   "Mobile-optimiert für alle Geräte",

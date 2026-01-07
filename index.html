@@ -20,15 +20,27 @@
         overflow-x: hidden;
       }
 
-      /* Subtle gradient blobs positioned across the page */
+      /* Safari-optimierte Hintergrund-Blobs mit Hardware-Beschleunigung */
       body::before,
       body::after {
         content: '';
         position: fixed;
         border-radius: 50%;
-        filter: blur(120px);
+        filter: blur(100px);
         z-index: -1;
         pointer-events: none;
+        transform: translateZ(0);
+        will-change: transform;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+      }
+
+      /* Mobile: Kleinere Blobs für bessere Performance */
+      @media (max-width: 768px) {
+        body::before,
+        body::after {
+          filter: blur(60px);
+        }
       }
 
       body::before {
@@ -47,12 +59,35 @@
         background: radial-gradient(circle, rgba(49, 107, 255, 0.06) 0%, transparent 70%);
       }
 
+      /* Mobile: Kleinere Dimensionen */
+      @media (max-width: 768px) {
+        body::before {
+          width: 300px;
+          height: 300px;
+        }
+        body::after {
+          width: 350px;
+          height: 350px;
+        }
+      }
+
       .bg-blob {
         position: fixed;
         border-radius: 50%;
-        filter: blur(100px);
+        filter: blur(80px);
         z-index: -1;
         pointer-events: none;
+        transform: translateZ(0);
+        will-change: transform;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+      }
+
+      /* Mobile: Reduzierte Blur-Effekte */
+      @media (max-width: 768px) {
+        .bg-blob {
+          filter: blur(50px);
+        }
       }
 
       .blob-1 {
@@ -79,25 +114,49 @@
         background: radial-gradient(circle, rgba(49, 107, 255, 0.065) 0%, transparent 70%);
       }
 
+      /* Mobile: Kleinere Blobs */
+      @media (max-width: 768px) {
+        .blob-1 {
+          width: 250px;
+          height: 250px;
+        }
+        .blob-2 {
+          width: 275px;
+          height: 275px;
+        }
+        .blob-3 {
+          width: 300px;
+          height: 300px;
+        }
+      }
+
+      /* Safari-optimierte Animationen mit Hardware-Beschleunigung */
       @keyframes mouseMove {
-        0% { transform: translate(0, 0); }
-        25% { transform: translate(35px, 15px); }
-        50% { transform: translate(15px, 40px); }
-        75% { transform: translate(-10px, 25px); }
-        100% { transform: translate(0, 0); }
+        0% { transform: translate3d(0, 0, 0); }
+        25% { transform: translate3d(35px, 15px, 0); }
+        50% { transform: translate3d(15px, 40px, 0); }
+        75% { transform: translate3d(-10px, 25px, 0); }
+        100% { transform: translate3d(0, 0, 0); }
       }
       .animate-mouse {
         animation: mouseMove 8s infinite ease-in-out;
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
       }
 
+      /* Safari-optimiertes Logo-Scrolling */
       .logo-track {
         display: flex;
         width: calc(250px * 10);
         animation: scroll 40s linear infinite;
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
       }
       @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-250px * 5)); }
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(calc(-250px * 5), 0, 0); }
       }
 
       .perspective-2000 {

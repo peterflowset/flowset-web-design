@@ -41,8 +41,8 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen text-gray-950 selection:bg-blue-50 selection:text-blue-600">
       <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled ? 'py-4 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm' : 'py-8 bg-transparent'
-      }`}>
+        scrolled ? 'py-4 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm' : 'py-8 bg-transparent'
+      }`} style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center cursor-pointer group" onClick={() => scrollToSection('hero')}>
             <img
@@ -76,7 +76,10 @@ const App: React.FC = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-2xl border-b border-gray-100 p-8 flex flex-col gap-8 shadow-2xl animate-in fade-in slide-in-from-top-4">
+          <div
+            className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-md border-b border-gray-100 p-8 flex flex-col gap-8 shadow-2xl animate-in fade-in slide-in-from-top-4"
+            style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
+          >
             <button onClick={() => scrollToSection('vorteile')} className="text-xl font-bold text-left">Vorteile</button>
             <button onClick={() => scrollToSection('ablauf')} className="text-xl font-bold text-left">Ablauf</button>
             <button onClick={() => scrollToSection('preise')} className="text-xl font-bold text-left">Preise</button>
@@ -97,7 +100,7 @@ const App: React.FC = () => {
         <div id="contact"><ContactForm /></div>
       </main>
 
-      <footer className="bg-white/50 backdrop-blur-md border-t border-gray-100 py-20 relative z-10">
+      <footer className="bg-white/95 backdrop-blur-sm border-t border-gray-100 py-20 relative z-10" style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}>
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12">
             <div className="space-y-6">

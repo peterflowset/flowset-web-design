@@ -17,31 +17,35 @@ const PROBLEMS = [
 
 export const Problems: React.FC = () => {
   return (
-    <section className="flex items-center py-20 relative overflow-hidden bg-transparent">
+    <section className="flex items-center py-16 sm:py-20 relative overflow-hidden bg-transparent">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
 
-          <div className="order-2 lg:order-1 space-y-8">
+          <div className="order-2 lg:order-1 space-y-6 sm:space-y-8">
             <div>
               <div className="inline-flex items-center gap-2 text-red-500 italic font-bold uppercase tracking-[0.25em] text-[10px] mb-4">
                 <AlertCircle size={14} />
                 <span>Status Quo der Branche</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
                 Nachteile von <br /><span className="text-gray-300 italic">klassischen</span> Agenturen.
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
                 Klassische Prozesse sind zu langsam und intransparent für lokale Betriebe. Wir eliminieren die Reibungsverluste des alten Agenturmodells.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               {PROBLEMS.map((p, i) => (
-                <div key={i} className="group p-8 rounded-[32px] bg-white border border-gray-100 hover:border-red-100 hover:shadow-[0_20px_40px_rgba(239,68,68,0.05)] transition-all duration-500">
-                  <div className="mb-6 w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div
+                  key={i}
+                  className="group p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-white border border-gray-100 hover:border-red-100 hover:shadow-[0_20px_40px_rgba(239,68,68,0.05)] transition-all duration-500"
+                  style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
+                >
+                  <div className="mb-4 sm:mb-6 w-10 h-10 sm:w-12 sm:h-12 bg-red-50 rounded-xl sm:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     {p.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 tracking-tight">{p.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 tracking-tight">{p.title}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">{p.description}</p>
                 </div>
               ))}
@@ -49,48 +53,48 @@ export const Problems: React.FC = () => {
           </div>
 
           <div className="order-1 lg:order-2 relative">
-            {/* Purely Visual Problem Graphic - Chaos & Blockages */}
-            <div className="relative aspect-square max-w-[540px] mx-auto bg-white rounded-[60px] border border-gray-100 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
+            {/* Purely Visual Problem Graphic - Chaos & Blockages - Mobile optimiert */}
+            <div className="relative aspect-square max-w-[540px] mx-auto bg-white rounded-[40px] sm:rounded-[60px] border border-gray-100 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.08)] sm:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-white"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.03)_0%,transparent_60%)]"></div>
 
-              <div className="relative h-full w-full p-12 flex items-center justify-center">
+              <div className="relative h-full w-full p-6 sm:p-12 flex items-center justify-center">
 
-                {/* Central Blocked Path - representing slowness */}
+                {/* Central Blocked Path - representing slowness - Mobile optimiert */}
                 <div className="relative w-full h-full flex items-center justify-center">
 
                   {/* Horizontal Path with Obstacles */}
-                  <div className="absolute left-8 right-8 h-3 bg-gray-100 rounded-full top-1/2 -translate-y-1/2"></div>
+                  <div className="absolute left-4 right-4 sm:left-8 sm:right-8 h-2 sm:h-3 bg-gray-100 rounded-full top-1/2 -translate-y-1/2"></div>
 
-                  {/* Obstacle Blocks */}
-                  <div className="absolute left-[25%] top-1/2 -translate-y-1/2 w-16 h-16 bg-red-50 rounded-2xl border border-red-100/50 shadow-sm rotate-12 flex items-center justify-center">
-                    <div className="w-8 h-8 bg-red-100/60 rounded-xl"></div>
+                  {/* Obstacle Blocks - Mobile optimiert */}
+                  <div className="absolute left-[25%] top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-red-50 rounded-xl sm:rounded-2xl border border-red-100/50 shadow-sm rotate-12 flex items-center justify-center">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-100/60 rounded-lg sm:rounded-xl"></div>
                   </div>
-                  <div className="absolute left-[50%] -translate-x-1/2 top-1/2 -translate-y-1/2 w-20 h-20 bg-red-50 rounded-2xl border border-red-100/50 shadow-md -rotate-6 flex items-center justify-center">
-                    <div className="w-10 h-10 bg-red-100/60 rounded-xl"></div>
+                  <div className="absolute left-[50%] -translate-x-1/2 top-1/2 -translate-y-1/2 w-14 h-14 sm:w-20 sm:h-20 bg-red-50 rounded-xl sm:rounded-2xl border border-red-100/50 shadow-md -rotate-6 flex items-center justify-center">
+                    <div className="w-7 h-7 sm:w-10 sm:h-10 bg-red-100/60 rounded-lg sm:rounded-xl"></div>
                   </div>
-                  <div className="absolute right-[25%] top-1/2 -translate-y-1/2 w-14 h-14 bg-red-50 rounded-2xl border border-red-100/50 shadow-sm rotate-6 flex items-center justify-center">
-                    <div className="w-7 h-7 bg-red-100/60 rounded-xl"></div>
+                  <div className="absolute right-[25%] top-1/2 -translate-y-1/2 w-10 h-10 sm:w-14 sm:h-14 bg-red-50 rounded-xl sm:rounded-2xl border border-red-100/50 shadow-sm rotate-6 flex items-center justify-center">
+                    <div className="w-5 h-5 sm:w-7 sm:h-7 bg-red-100/60 rounded-lg sm:rounded-xl"></div>
                   </div>
 
-                  {/* Scattered Complexity Elements */}
-                  <div className="absolute top-[20%] left-[30%] w-12 h-12 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm rotate-45">
-                    <div className="absolute inset-2 bg-gray-100 rounded-lg"></div>
+                  {/* Scattered Complexity Elements - Mobile optimiert */}
+                  <div className="absolute top-[20%] left-[30%] w-8 h-8 sm:w-12 sm:h-12 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm rotate-45">
+                    <div className="absolute inset-1 sm:inset-2 bg-gray-100 rounded-lg"></div>
                   </div>
-                  <div className="absolute bottom-[20%] right-[30%] w-10 h-10 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm -rotate-12">
-                    <div className="absolute inset-2 bg-gray-100 rounded-lg"></div>
+                  <div className="absolute bottom-[20%] right-[30%] w-7 h-7 sm:w-10 sm:h-10 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm -rotate-12">
+                    <div className="absolute inset-1 sm:inset-2 bg-gray-100 rounded-lg"></div>
                   </div>
-                  <div className="absolute top-[35%] right-[15%] w-8 h-8 bg-gray-50 rounded-xl border border-gray-100 rotate-[25deg]"></div>
-                  <div className="absolute bottom-[35%] left-[15%] w-8 h-8 bg-gray-50 rounded-xl border border-gray-100 -rotate-[15deg]"></div>
+                  <div className="absolute top-[35%] right-[15%] w-6 h-6 sm:w-8 sm:h-8 bg-gray-50 rounded-lg sm:rounded-xl border border-gray-100 rotate-[25deg]"></div>
+                  <div className="absolute bottom-[35%] left-[15%] w-6 h-6 sm:w-8 sm:h-8 bg-gray-50 rounded-lg sm:rounded-xl border border-gray-100 -rotate-[15deg]"></div>
 
-                  {/* Warning Indicators */}
-                  <div className="absolute top-8 right-12 flex items-center gap-2 bg-red-50/50 px-4 py-2 rounded-full border border-red-100/30">
-                    <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-                    <div className="h-1 w-12 bg-red-100 rounded-full"></div>
+                  {/* Warning Indicators - Mobile optimiert */}
+                  <div className="absolute top-4 right-4 sm:top-8 sm:right-12 flex items-center gap-1 sm:gap-2 bg-red-50/50 px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-red-100/30">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-400 rounded-full animate-pulse"></div>
+                    <div className="h-1 w-6 sm:w-12 bg-red-100 rounded-full"></div>
                   </div>
-                  <div className="absolute bottom-8 left-12 flex items-center gap-2 bg-red-50/50 px-4 py-2 rounded-full border border-red-100/30">
-                    <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                    <div className="h-1 w-12 bg-red-100 rounded-full"></div>
+                  <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-12 flex items-center gap-1 sm:gap-2 bg-red-50/50 px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-red-100/30">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="h-1 w-6 sm:w-12 bg-red-100 rounded-full"></div>
                   </div>
 
                 </div>

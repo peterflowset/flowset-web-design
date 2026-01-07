@@ -2,19 +2,19 @@
 import React from 'react';
 
 const LOGOS = [
-  { name: 'Claude AI', logo: '/logos copy/claude.png' },
-  { name: 'OpenAI', logo: '/logos copy/openai.svg' },
-  { name: 'Gemini', logo: '/logos copy/gemini.png' },
-  { name: 'Grok', logo: '/logos copy/grok.png' },
-  { name: 'Cursor', logo: '/logos copy/cursor.png' },
-  { name: 'Lovable', logo: '/logos copy/lovable.svg' },
-  { name: 'Supabase', logo: '/logos copy/supabase.png' },
-  { name: 'PostgreSQL', logo: '/logos copy/postgressql.png' },
-  { name: 'Pinecone', logo: '/logos copy/pinecone.svg' },
-  { name: 'n8n', logo: '/logos copy/n8n.png' },
-  { name: 'Make', logo: '/logos copy/make.png' },
-  { name: 'Airtable', logo: '/logos copy/airtable.png' },
-  { name: 'HighLevel', logo: '/logos copy/highlevel.png' },
+  { name: 'Claude AI', logo: '/logos/claude.png' },
+  { name: 'OpenAI', logo: '/logos/openai.svg' },
+  { name: 'Gemini', logo: '/logos/gemini.png' },
+  { name: 'Grok', logo: '/logos/grok.png' },
+  { name: 'Cursor', logo: '/logos/cursor.png' },
+  { name: 'Lovable', logo: '/logos/lovable.svg' },
+  { name: 'Supabase', logo: '/logos/supabase.png' },
+  { name: 'PostgreSQL', logo: '/logos/postgressql.png' },
+  { name: 'Pinecone', logo: '/logos/pinecone.svg' },
+  { name: 'n8n', logo: '/logos/n8n.png' },
+  { name: 'Make', logo: '/logos/make.png' },
+  { name: 'Airtable', logo: '/logos/airtable.png' },
+  { name: 'HighLevel', logo: '/logos/highlevel.png' },
 ];
 
 export const LogoCarousel: React.FC = () => {

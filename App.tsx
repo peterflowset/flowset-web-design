@@ -46,7 +46,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center cursor-pointer group" onClick={() => scrollToSection('hero')}>
             <img
-              src="/logos copy/flowset_logo.png"
+              src="/logos/flowset_logo.png"
               alt="Flowset"
               className="h-8 w-auto group-hover:scale-105 transition-transform"
             />
@@ -102,7 +102,7 @@ const App: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-start gap-12">
             <div className="space-y-6">
               <img
-                src="/logos copy/flowset_logo.png"
+                src="/logos/flowset_logo.png"
                 alt="Flowset"
                 className="h-8 w-auto"
               />

@@ -85,80 +85,75 @@ export const ProcessTimeline: React.FC = () => {
           {/* Steps Wrapper */}
           <div className="space-y-20 md:space-y-32">
             {STEPS.map((step, index) => {
-              // Calculate explicit simple active state
               const stepThreshold = index / (STEPS.length - 1);
-              // Make steps active slightly "early" so the line passes through them nicely
               const isActive = progress >= (stepThreshold - 0.05);
+              const isEven = index % 2 === 0;
 
               return (
-                <div key={index} className="relative flex items-center justify-between md:justify-center group">
+                <div key={index} className="relative">
 
-                  {/* Left Side (Desktop) */}
-                  <div className="hidden md:flex w-5/12 justify-end pr-12">
-                    {/* IF EVEN: Content (Text + Icon) */}
-                    {index % 2 === 0 && (
-                      <div className={`flex items-start justify-end gap-6 transition-all duration-700 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-20 -translate-x-8'}`}>
-                        <div className="text-right">
-                          <div className="text-[10px] font-bold text-[#316bff] uppercase tracking-widest mb-2">{step.time}</div>
-                          <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                          <p className="text-gray-500 leading-relaxed text-sm">{step.description}</p>
-                        </div>
-                        {/* Icon Box */}
-                        <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-lg ${isActive ? 'bg-[#316bff] text-white' : 'bg-white text-gray-300 border border-gray-100'}`}>
-                          {step.icon}
-                        </div>
-                      </div>
-                    )}
-                    {/* IF ODD: Number */}
-                    {index % 2 !== 0 && (
-                      <div className={`flex justify-end pr-8 transition-all duration-700 delay-100 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
-                        <div className="text-4xl font-black text-gray-100">0{index + 1}</div>
-                      </div>
-                    )}
-                  </div>
+                  {/* Desktop Grid Layout */}
+                  <div className="hidden md:grid md:grid-cols-2 md:gap-x-24 items-center">
 
-                  {/* Center Node (Small Dot) */}
-                  <div className={`relative z-10 w-4 h-4 rounded-full border-2 transition-all duration-300 bg-white
-                    ${isActive ? 'border-[#316bff] scale-125 shadow-[0_0_0_4px_rgba(49,107,255,0.2)]' : 'border-gray-200 scale-100'}`}
-                  ></div>
-
-                  {/* Right Side (Desktop) */}
-                  <div className="flex-1 md:w-5/12 pl-12">
-
-                    {/* Mobile Content (Always Visible - Stacked) */}
-                    <div className="md:hidden flex gap-4">
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-md transition-all duration-500 ${isActive ? 'bg-[#316bff] text-white' : 'bg-white text-gray-300 border border-gray-100'}`}>
-                        {React.cloneElement(step.icon as React.ReactElement, { size: 20 })}
-                      </div>
-                      <div className={`transition-all duration-700 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-30 translate-x-4'}`}>
-                        <div className="text-[10px] font-bold text-[#316bff] uppercase tracking-widest mb-1">{step.time}</div>
-                        <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                        <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
-                      </div>
-                    </div>
-
-                    {/* Desktop Content */}
-                    <div className="hidden md:block text-left">
-                      {/* IF ODD: Content (Icon + Text) */}
-                      {index % 2 !== 0 && (
-                        <div className={`flex items-start justify-start gap-6 transition-all duration-700 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-20 translate-x-8'}`}>
-                          {/* Icon Box */}
+                    {/* Left Column */}
+                    <div className={`flex justify-end ${isEven ? 'text-right' : 'text-right'}`}>
+                      {isEven ? (
+                        /* Content (Text + Icon) */
+                        <div className={`flex items-start justify-end gap-6 transition-all duration-700 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-20 -translate-x-8'}`}>
+                          <div>
+                            <div className="text-[10px] font-bold text-[#316bff] uppercase tracking-widest mb-2">{step.time}</div>
+                            <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                            <p className="text-gray-500 leading-relaxed text-sm max-w-sm ml-auto">{step.description}</p>
+                          </div>
+                          {/* Icon */}
                           <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-lg ${isActive ? 'bg-[#316bff] text-white' : 'bg-white text-gray-300 border border-gray-100'}`}>
                             {step.icon}
                           </div>
-                          <div className="text-left">
+                        </div>
+                      ) : (
+                        /* Number (02, 04...) */
+                        <div className={`transition-all duration-700 delay-100 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}>
+                          <div className="text-6xl font-black text-gray-100/50 select-none">0{index + 1}</div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Right Column */}
+                    <div className={`flex justify-start ${!isEven ? 'text-left' : 'text-left'}`}>
+                      {!isEven ? (
+                        /* Content (Icon + Text) */
+                        <div className={`flex items-start justify-start gap-6 transition-all duration-700 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-20 translate-x-8'}`}>
+                          {/* Icon */}
+                          <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-lg ${isActive ? 'bg-[#316bff] text-white' : 'bg-white text-gray-300 border border-gray-100'}`}>
+                            {step.icon}
+                          </div>
+                          <div>
                             <div className="text-[10px] font-bold text-[#316bff] uppercase tracking-widest mb-2">{step.time}</div>
                             <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                            <p className="text-gray-500 leading-relaxed text-sm">{step.description}</p>
+                            <p className="text-gray-500 leading-relaxed text-sm max-w-sm mr-auto">{step.description}</p>
                           </div>
                         </div>
-                      )}
-                      {/* IF EVEN: Number */}
-                      {index % 2 === 0 && (
-                        <div className={`flex pl-8 transition-all duration-700 delay-100 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
-                          <div className="text-4xl font-black text-gray-100">0{index + 1}</div>
+                      ) : (
+                        /* Number (01, 03...) */
+                        <div className={`transition-all duration-700 delay-100 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
+                          <div className="text-6xl font-black text-gray-100/50 select-none">0{index + 1}</div>
                         </div>
                       )}
+                    </div>
+
+                  </div>
+
+
+                  {/* Mobile Layout (Stacked) */}
+                  <div className="md:hidden flex gap-4 pl-12 relative">
+                    {/* Mobile connects to the line with a horizontal connector? No, keep it simple */}
+                    <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-md transition-all duration-500 ${isActive ? 'bg-[#316bff] text-white' : 'bg-white text-gray-300 border border-gray-100'}`}>
+                      {React.cloneElement(step.icon as React.ReactElement, { size: 20 })}
+                    </div>
+                    <div className={`transition-all duration-700 ${isActive ? 'opacity-100 translate-x-0' : 'opacity-30 translate-x-4'}`}>
+                      <div className="text-[10px] font-bold text-[#316bff] uppercase tracking-widest mb-1">{step.time}</div>
+                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                      <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
                     </div>
                   </div>
 

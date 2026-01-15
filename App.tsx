@@ -1,15 +1,20 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Hero } from './components/Hero';
-import { LogoCarousel } from './components/LogoCarousel';
-import { Problems } from './components/Problems';
-import { Solution } from './components/Solution';
-import { ServicesGrid } from './components/ServicesGrid';
-import { ProcessTimeline } from './components/ProcessTimeline';
-import { TargetAudience } from './components/TargetAudience';
-import { PricingTable } from './components/PricingTable';
-import { ContactForm } from './components/ContactForm';
+
+// Lazy load all components for better code-splitting
+const Hero = React.lazy(() => import('./components/Hero').then(m => ({ default: m.Hero })));
+const LogoCarousel = React.lazy(() => import('./components/LogoCarousel').then(m => ({ default: m.LogoCarousel })));
+const Problems = React.lazy(() => import('./components/Problems').then(m => ({ default: m.Problems })));
+const Solution = React.lazy(() => import('./components/Solution').then(m => ({ default: m.Solution })));
+const ServicesGrid = React.lazy(() => import('./components/ServicesGrid').then(m => ({ default: m.ServicesGrid })));
+const ProcessTimeline = React.lazy(() => import('./components/ProcessTimeline').then(m => ({ default: m.ProcessTimeline })));
+const TargetAudience = React.lazy(() => import('./components/TargetAudience').then(m => ({ default: m.TargetAudience })));
+const PricingTable = React.lazy(() => import('./components/PricingTable').then(m => ({ default: m.PricingTable })));
+const ContactForm = React.lazy(() => import('./components/ContactForm').then(m => ({ default: m.ContactForm })));
+
+// Minimal loading component for Suspense
+const LoadingFallback = () => <div className="min-h-[200px]" />;
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,9 +45,8 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen text-gray-950 selection:bg-blue-50 selection:text-blue-600">
-      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled ? 'py-4 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm' : 'py-8 bg-transparent'
-      }`} style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}>
+      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'py-4 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm' : 'py-8 bg-transparent'
+        }`} style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center cursor-pointer group" onClick={() => scrollToSection('hero')}>
             <img
@@ -51,18 +55,18 @@ const App: React.FC = () => {
               className="h-8 w-auto group-hover:scale-105 transition-transform"
             />
           </div>
-          
+
           <div className="hidden lg:flex items-center gap-10">
             {['Vorteile', 'Ablauf', 'Preise'].map((item) => (
-              <button 
+              <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())} 
+                onClick={() => scrollToSection(item.toLowerCase())}
                 className="text-sm font-bold text-gray-500 hover:text-black transition-all uppercase tracking-widest"
               >
                 {item}
               </button>
             ))}
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
               className="bg-black text-white px-6 py-3 rounded-full text-sm font-black uppercase tracking-wider hover:bg-[#316bff] transition-all active:scale-95"
             >
@@ -89,15 +93,33 @@ const App: React.FC = () => {
       </nav>
 
       <main className="relative">
-        <div id="hero"><Hero /></div>
-        <LogoCarousel />
-        <Problems />
-        <Solution />
-        <div id="vorteile"><ServicesGrid /></div>
-        <div id="ablauf"><ProcessTimeline /></div>
-        <TargetAudience />
-        <div id="preise"><PricingTable /></div>
-        <div id="contact"><ContactForm /></div>
+        <Suspense fallback={<LoadingFallback />}>
+          <div id="hero"><Hero /></div>
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <LogoCarousel />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <Problems />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <Solution />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <div id="vorteile"><ServicesGrid /></div>
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <div id="ablauf"><ProcessTimeline /></div>
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <TargetAudience />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <div id="preise"><PricingTable /></div>
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <div id="contact"><ContactForm /></div>
+        </Suspense>
       </main>
 
       <footer className="bg-white/95 backdrop-blur-sm border-t border-gray-100 py-20 relative z-10" style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}>
@@ -111,7 +133,7 @@ const App: React.FC = () => {
               />
               <p className="text-gray-500 max-w-xs font-medium">Ihre moderne Web-Agentur aus Südtirol. Professionelle Ergebnisse in Rekordzeit.</p>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 gap-16">
               <div className="space-y-4">
                 <h4 className="font-bold uppercase tracking-widest text-xs text-gray-400">Navigation</h4>

@@ -5,13 +5,13 @@ import { ArrowRight, MousePointer2 } from 'lucide-react';
 export const Hero: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center pt-32 pb-20 md:pt-32 md:pb-24 relative overflow-hidden bg-transparent">
-      {/* Minimalist Background Logic - Enhanced for Mobile */}
+      {/* Minimalist Background Logic - Optimized for Mobile */}
       <div
-        className="absolute top-[10%] left-[-10%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] bg-blue-400/20 blur-[90px] md:blur-[140px] rounded-full -z-10 animate-pulse"
+        className="hidden md:block absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-400/20 blur-[140px] rounded-full -z-10 animate-pulse"
         style={{ animationDuration: '4s', transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
       ></div>
       <div
-        className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] md:w-[600px] md:h-[600px] bg-indigo-300/20 blur-[100px] md:blur-[160px] rounded-full -z-10"
+        className="hidden md:block absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-indigo-300/20 blur-[160px] rounded-full -z-10"
         style={{ transform: 'translateZ(0)', WebkitBackfaceVisibility: 'hidden' }}
       ></div>
 
@@ -129,8 +129,8 @@ export const Hero: React.FC = () => {
 
               </div>
 
-              {/* Subtle Background Glow */}
-              <div className="absolute inset-0 bg-blue-400/10 blur-[60px] -z-10 rounded-full"></div>
+              {/* Subtle Background Glow - Desktop only */}
+              <div className="hidden md:block absolute inset-0 bg-blue-400/10 blur-[60px] -z-10 rounded-full"></div>
             </div>
           </div>
         </div>

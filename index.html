@@ -1,186 +1,232 @@
-
 <!DOCTYPE html>
 <html lang="de" class="scroll-smooth overflow-x-hidden">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flowset | Ihre Website in 7 Tagen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #ffffff;
-        color: #030712;
-        letter-spacing: -0.022em;
-        font-feature-settings: 'cv05', 'cv08', 'cv11', 'ss01';
-        position: relative;
-        overflow-x: hidden;
-      }
 
-      /* Safari-optimierte Hintergrund-Blobs mit Hardware-Beschleunigung */
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flowset | Ihre Website in 7 Tagen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <!-- Preload critical font for faster rendering -->
+  <link rel="preload"
+    href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font"
+    type="font/woff2" crossorigin />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #030712;
+      letter-spacing: -0.022em;
+      font-feature-settings: 'cv05', 'cv08', 'cv11', 'ss01';
+      position: relative;
+      overflow-x: hidden;
+      contain: layout style paint;
+    }
+
+    /* Disable animations on reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Safari-optimierte Hintergrund-Blobs mit Hardware-Beschleunigung */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: -1;
+      pointer-events: none;
+      transform: translateZ(0);
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    /* Mobile: Drastisch reduzierte Blur-Effekte für bessere Performance */
+    @media (max-width: 768px) {
+
       body::before,
       body::after {
-        content: '';
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(100px);
-        z-index: -1;
-        pointer-events: none;
-        transform: translateZ(0);
-        will-change: transform;
-        -webkit-transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
+        filter: blur(40px);
+        opacity: 0.6;
       }
+    }
 
-      /* Mobile: Kleinere Blobs für bessere Performance */
-      @media (max-width: 768px) {
-        body::before,
-        body::after {
-          filter: blur(60px);
-        }
-      }
+    body::before {
+      top: 20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(49, 107, 255, 0.08) 0%, transparent 70%);
+    }
 
+    body::after {
+      bottom: 15%;
+      left: -15%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(49, 107, 255, 0.06) 0%, transparent 70%);
+    }
+
+    /* Mobile: Kleinere Dimensionen */
+    @media (max-width: 768px) {
       body::before {
-        top: 20%;
-        right: -10%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(49, 107, 255, 0.08) 0%, transparent 70%);
+        width: 300px;
+        height: 300px;
       }
 
       body::after {
-        bottom: 15%;
-        left: -15%;
-        width: 700px;
-        height: 700px;
-        background: radial-gradient(circle, rgba(49, 107, 255, 0.06) 0%, transparent 70%);
+        width: 350px;
+        height: 350px;
       }
+    }
 
-      /* Mobile: Kleinere Dimensionen */
-      @media (max-width: 768px) {
-        body::before {
-          width: 300px;
-          height: 300px;
-        }
-        body::after {
-          width: 350px;
-          height: 350px;
-        }
-      }
+    .bg-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: -1;
+      pointer-events: none;
+      transform: translateZ(0);
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      contain: layout style paint;
+    }
 
+    /* Mobile: Drastisch reduzierte Blur-Effekte */
+    @media (max-width: 768px) {
       .bg-blob {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(80px);
-        z-index: -1;
-        pointer-events: none;
-        transform: translateZ(0);
-        will-change: transform;
-        -webkit-transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
+        filter: blur(30px);
+        opacity: 0.5;
+        display: none;
+        /* Blobs auf Mobile komplett deaktivieren */
       }
+    }
 
-      /* Mobile: Reduzierte Blur-Effekte */
-      @media (max-width: 768px) {
-        .bg-blob {
-          filter: blur(50px);
-        }
-      }
+    .blob-1 {
+      top: 5%;
+      left: 10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(49, 107, 255, 0.09) 0%, transparent 70%);
+    }
 
+    .blob-2 {
+      top: 50%;
+      right: 5%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(49, 107, 255, 0.07) 0%, transparent 70%);
+    }
+
+    .blob-3 {
+      bottom: 10%;
+      left: 15%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(49, 107, 255, 0.065) 0%, transparent 70%);
+    }
+
+    /* Mobile: Kleinere Blobs */
+    @media (max-width: 768px) {
       .blob-1 {
-        top: 5%;
-        left: 10%;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, rgba(49, 107, 255, 0.09) 0%, transparent 70%);
+        width: 250px;
+        height: 250px;
       }
 
       .blob-2 {
-        top: 50%;
-        right: 5%;
-        width: 550px;
-        height: 550px;
-        background: radial-gradient(circle, rgba(49, 107, 255, 0.07) 0%, transparent 70%);
+        width: 275px;
+        height: 275px;
       }
 
       .blob-3 {
-        bottom: 10%;
-        left: 15%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(49, 107, 255, 0.065) 0%, transparent 70%);
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    /* Safari-optimierte Animationen mit Hardware-Beschleunigung */
+    @keyframes mouseMove {
+      0% {
+        transform: translate3d(0, 0, 0);
       }
 
-      /* Mobile: Kleinere Blobs */
-      @media (max-width: 768px) {
-        .blob-1 {
-          width: 250px;
-          height: 250px;
-        }
-        .blob-2 {
-          width: 275px;
-          height: 275px;
-        }
-        .blob-3 {
-          width: 300px;
-          height: 300px;
-        }
+      25% {
+        transform: translate3d(35px, 15px, 0);
       }
 
-      /* Safari-optimierte Animationen mit Hardware-Beschleunigung */
-      @keyframes mouseMove {
-        0% { transform: translate3d(0, 0, 0); }
-        25% { transform: translate3d(35px, 15px, 0); }
-        50% { transform: translate3d(15px, 40px, 0); }
-        75% { transform: translate3d(-10px, 25px, 0); }
-        100% { transform: translate3d(0, 0, 0); }
+      50% {
+        transform: translate3d(15px, 40px, 0);
       }
+
+      75% {
+        transform: translate3d(-10px, 25px, 0);
+      }
+
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .animate-mouse {
+      animation: mouseMove 8s infinite ease-in-out;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      contain: layout style paint;
+    }
+
+    /* Mobile: Disable cursor animation */
+    @media (max-width: 768px) {
       .animate-mouse {
-        animation: mouseMove 8s infinite ease-in-out;
-        will-change: transform;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+        display: none;
+      }
+    }
+
+    /* Safari-optimiertes Logo-Scrolling */
+    .logo-track {
+      display: flex;
+      width: calc(250px * 10);
+      animation: scroll 40s linear infinite;
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translate3d(0, 0, 0);
       }
 
-      /* Safari-optimiertes Logo-Scrolling */
-      .logo-track {
-        display: flex;
-        width: calc(250px * 10);
-        animation: scroll 40s linear infinite;
-        will-change: transform;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+      100% {
+        transform: translate3d(calc(-250px * 5), 0, 0);
       }
-      @keyframes scroll {
-        0% { transform: translate3d(0, 0, 0); }
-        100% { transform: translate3d(calc(-250px * 5), 0, 0); }
-      }
+    }
 
-      .perspective-2000 {
-        perspective: 2000px;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+    .perspective-2000 {
+      perspective: 2000px;
+    }
+  </style>
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="antialiased overflow-x-hidden">
-    <div class="bg-blob blob-1"></div>
-    <div class="bg-blob blob-2"></div>
-    <div class="bg-blob blob-3"></div>
-    <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+
+<body class="antialiased overflow-x-hidden">
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>
